@@ -1,0 +1,7 @@
+﻿namespace simulacro.Models;
+
+public class Veterinary
+{
+    public int Id { get; set; }
+    public string Name { get; set; } = string.Empty;
+}

@@ -1,4 +1,5 @@
-﻿using simulacro.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using simulacro.Data;
 using simulacro.Models;
 
 namespace simulacro.Services;
@@ -12,9 +13,9 @@ public class OwnerService
         _context = context;
     }
 
-    public IEnumerable<Owner> GetAll()
+    public async Task<IEnumerable<Owner>> GetAll()
     {
-        var owners = _context.owners.ToList();
+        var owners = await _context.owners.ToListAsync();
         return owners;
     }
 }

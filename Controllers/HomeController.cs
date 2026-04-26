@@ -24,9 +24,9 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Hi()
+    public async Task<IActionResult> Hi()
     {
-        var ser = _service.GetAll();
+        var ser = await _service.GetAll();
         return View(ser);
     }
     
