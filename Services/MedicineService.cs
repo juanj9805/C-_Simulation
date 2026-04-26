@@ -34,11 +34,18 @@ public class MedicineService
     {
         if (medicine != null)
         {
-            var found = _context.medicines.FirstOrDefault(medicine => medicine.Id == medicine.Id);
+            var found = _context.medicines.FirstOrDefault(med => med.Id == medicine.Id);
             found.Name = medicine.Name;
             _context.SaveChanges();
         }
 
         return null;
+    }
+    
+    public async Task<Medicine> GetById(int id)
+    {
+        var found = _context.medicines.FirstOrDefault(m => m.Id == id);
+        
+        return found;
     }
 }

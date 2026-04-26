@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="col-12">
-        <form asp-action="Update" asp-controller="Medicine" method="post">
+        <form asp-action="Update" asp-controller="Medicine" asp-route-id="@Model.Id" method="post">
             <label asp-for="Name" class="form-label">Name</label>
             <input asp-for="Name" class="form-control" />
             <button type="submit" class="btn btn-primary">Send</button>

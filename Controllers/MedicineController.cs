@@ -40,7 +40,8 @@ public class MedicineController : Controller
     [HttpGet]
     public async Task<IActionResult> Update(int id)
     {
-        return View();
+        var find = await _service.GetById(id);
+        return View(find);
     }
 
     [HttpPost]
