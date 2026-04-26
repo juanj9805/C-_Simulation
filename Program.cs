@@ -11,6 +11,8 @@ builder.Services.AddDbContext<MySqlDbContext>(options =>
         ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("MysqlConnection"))));
 
 builder.Services.AddScoped<OwnerService>();
+builder.Services.AddScoped<VeterinaryService>();
+builder.Services.AddScoped<MedicineService>();
 
 
 var app = builder.Build();
@@ -32,7 +34,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=Veterinary}/{action=Index}/{id?}")
     .WithStaticAssets();
 
 

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using simulacro.Data;
 
@@ -11,9 +12,11 @@ using simulacro.Data;
 namespace simulacro.Migrations
 {
     [DbContext(typeof(MySqlDbContext))]
-    partial class MySqlDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260426030821_FouthMigration")]
+    partial class FouthMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,12 +68,12 @@ namespace simulacro.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("TreatmentMedicineId")
+                    b.Property<int?>("TreatmentId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TreatmentMedicineId");
+                    b.HasIndex("TreatmentId");
 
                     b.ToTable("medicines");
                 });
@@ -211,9 +214,9 @@ namespace simulacro.Migrations
 
             modelBuilder.Entity("simulacro.Models.Medicine", b =>
                 {
-                    b.HasOne("simulacro.Models.TreatmentMedicine", null)
+                    b.HasOne("simulacro.Models.Treatment", null)
                         .WithMany("Medicines")
-                        .HasForeignKey("TreatmentMedicineId");
+                        .HasForeignKey("TreatmentId");
                 });
 
             modelBuilder.Entity("simulacro.Models.Pet", b =>
@@ -262,7 +265,7 @@ namespace simulacro.Migrations
                     b.Navigation("Pets");
                 });
 
-            modelBuilder.Entity("simulacro.Models.TreatmentMedicine", b =>
+            modelBuilder.Entity("simulacro.Models.Treatment", b =>
                 {
                     b.Navigation("Medicines");
                 });

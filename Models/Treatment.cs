@@ -4,7 +4,6 @@ public class Treatment
 {
     public int Id { get; set; }
     public string Description { get; set; } = string.Empty;
-    public IEnumerable<Medicine>? Medicines { get; set; }
     public int ConsultationId { get; set; }
     public Consultation? Consultation { get; set; }
 }

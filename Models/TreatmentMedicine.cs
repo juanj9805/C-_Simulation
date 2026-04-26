@@ -7,4 +7,6 @@ public class TreatmentMedicine
     public Treatment? Treatment { get; set; }  
     public int MedicineId { get; set; }
     public Medicine? Medicine { get; set; }
+    public IEnumerable<Medicine>? Medicines { get; set; }
+    
 }
