@@ -1,1 +1,8 @@
-﻿<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut commodi cum deleniti, eos harum id molestias necessitatibus nesciunt nulla obcaecati pariatur provident quam quisquam sint veniam? Culpa, doloribus, mollitia? Id?</h1>
+﻿@model IEnumerable<Owner>
+
+@foreach (var o in Model)
+{
+    <h1>@o.Id</h1>
+    <h1>@o.Name</h1>
+}
+

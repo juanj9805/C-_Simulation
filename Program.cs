@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using simulacro.Data;
+using simulacro.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MySqlDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("MysqlConnection"),
         ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("MysqlConnection"))));
+
+builder.Services.AddScoped<OwnerService>();
+
 
 var app = builder.Build();
 
