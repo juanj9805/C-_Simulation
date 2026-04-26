@@ -36,4 +36,17 @@ public class MedicineController : Controller
 
         return View(medicine);
     }
+
+    [HttpGet]
+    public async Task<IActionResult> Update(int id)
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async  Task<IActionResult> Update(Medicine medicine)
+    {
+        await _service.Update(medicine);
+        return RedirectToAction("Index");
+    }
 }

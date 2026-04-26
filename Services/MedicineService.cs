@@ -29,4 +29,16 @@ public class MedicineService
 
         return null;
     }
+    
+    public async Task<Medicine> Update(Medicine medicine)
+    {
+        if (medicine != null)
+        {
+            var found = _context.medicines.FirstOrDefault(medicine => medicine.Id == medicine.Id);
+            found.Name = medicine.Name;
+            _context.SaveChanges();
+        }
+
+        return null;
+    }
 }
